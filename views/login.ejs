@@ -1,0 +1,18 @@
+<%- include('partials/header', {title:'Login'}) %>
+
+<section class="h-screen homeSection flex flex-col">
+
+    <div class="container w-fit px-16 py-12 bg-slate-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 LoginForm rounded-md">
+        <h1 class="text-center text-3xl font-bold mb-8 border-b-2 border-black">LOGIN</h1>
+        <form action="/login" method="post" class="flex flex-col">
+            <label for="email" class="text-lg">Email</label>
+            <input type="email" name="email" id="emailInput" class="mb-3 py-1 rounded-sm">
+            <label for="password" class="text-lg">Password</label>
+            <input type="password" name="password" id="passwordInput" class="mb-4 py-1 rounded-sm">
+            <button type="submit" class="rounded-md border-2 border-slate-400 hover:text-white hover:bg-sky-400 hover:scale-105 px-4 py-2 transition-all">Submit</button>
+        </form>
+        <h1 class="text-center text-base mt-4"><span>Don't have an account?</span><br><a href="/register" class="text-blue-700">Register an Account</a></h1>
+    </div>
+<section/>
+
+<%- include('partials/footer.ejs') %>  

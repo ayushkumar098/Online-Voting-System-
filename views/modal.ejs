@@ -1,0 +1,13 @@
+<div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Capture Face</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+        <video width="320" height="240" id="video" autoplay></video>
+        <button id="snap" class="shadow-md rounded-md bg-green-200 hover:bg-green-300 transition-all px-2 py-1 my-2">Take a Snap</button>
+        <canvas id="canvas" width="320" height="240"></canvas>
+        <button id="snapSend" class="shadow-md rounded-md bg-yellow-500 hover:bg-yellow-800 transition-all px-2 py-1 my-2 hidden">OK</button>
+    </div>
+  </div>
+<div id="overlay"></div>

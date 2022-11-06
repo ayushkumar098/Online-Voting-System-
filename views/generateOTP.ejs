@@ -1,0 +1,16 @@
+<%- include('partials/header', {title:'GenerateOTP'}) %>
+<%- include('partials/nav') %>
+<section class="bg-[#D8D9FB]">
+
+    <div class="flex flex-col items-center   h-screen pt-32">
+        <form action="/generateOTP" method="post">
+            <p class="text-3xl py-6 px-6 ">Generate OTP for Verification. </p>
+
+            <button type="submit" class="mb-1 ml-[150px] px-6 py-2 text-sm font-bold text-white bg-blue-500 rounded-md uppercase">SEND</button>
+        </form>
+    </div>
+
+    
+<section/>
+
+<%- include('partials/footer.ejs') %>  

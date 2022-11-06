@@ -1,0 +1,109 @@
+<%- include('partials/header', {title:'Home'}) %>
+<%- include('partials/nav') %>
+<style>
+  body {
+  /* Set "my-sec-counter" to 0 */
+  counter-reset: my-sec-counter;
+  }
+
+  td p::before {
+    /* Increment "my-sec-counter" by 1 */
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter) ". ";
+  }
+  img{
+    margin-left:50px ;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid #6366f1;
+  }
+</style>
+<section class="flex h-screen">
+
+    <div class="pl-16 basis-4/12 bg-[#EBECFD]">
+            <h1 class="text-3xl py-6 px-24 font-['Raleway']">Profile</h1>
+            <div>
+              <img src="<%= voter.imgUrl %>" alt="ImgUrl">
+            </div>
+          
+        <div class="flex" >
+            <div class="flex-col space-x-4">
+                <p class="text-lg py-3 px-4">Name</p>
+                <p class="text-lg py-3">Voter Id</p>
+                <p class="text-lg py-3">Constituency ID</p>
+                <p class="text-lg py-3">Passport Number</p>
+                <p class="text-lg py-3">Country</p>
+                <p class="text-lg py-3">Phone Number</p>
+            </div>
+            
+            <div class="flex-col space-x-4">
+                <p class="text-lg py-3 px-4"><%= voter.name %></p>
+                <p class="text-lg py-3"><%= voter.voterId %></p>
+                <p class="text-lg py-3"><%= voter.constituencyId %></p>
+                <p class="text-lg py-3"><%= voter.passportNo %></p>
+                <p class="text-lg py-3"><%= voter.country %></p>
+                <p class="text-lg py-3"><%= voter.mobileNo %></p>
+            </div>
+        </div>
+        <div>
+          <form action="/logout" method="post">
+            <button class="px-6 py-2 ml-5 mt-5 text-sm font-bold text-white bg-blue-900 rounded-md uppercase">Logout</button>
+          </form>
+        </div>
+    </div>
+
+    <div class="basis-9/12 pl-12 bg-[#D8D9FB]">
+        <p class="text-center text-2xl py-12">You can vote for the following elections</p>
+
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                #
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Election Number
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Election Name
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Vote
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% elections.forEach(function(status,election){ %>
+                <tr class="bg-white border-b">
+                <td class="bg-[#D8D9FB] px-6 py-4 whitespace-nowrap text-lg font-medium text-gray-900"><p></p></td>
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium	 px-6 py-4 whitespace-nowrap">
+                    <%= election.electionId %>
+                </td>
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <%= election.electionName %>
+                </td>
+                <% if(status){ %>
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <a class="mb-1 px-6 py-2 text-sm font-bold text-white bg-blue-500 rounded-md uppercase" href="/faceRecognition/<%= election.electionId %>">VOTE</a>
+                </td>
+                <% }else{ %>
+                  <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <a class="mb-1 px-6 py-2 text-sm font-bold text-blue-500 bg-white rounded-md uppercase" href="#">VOTED</a>
+                  </td>
+                <% } %>
+                </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+<section/>
+
+<%- include('partials/footer.ejs') %>  
+

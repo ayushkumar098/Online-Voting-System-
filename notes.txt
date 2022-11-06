@@ -1,0 +1,6 @@
+Data stored in session:
+1) voter.email
+2) voterDetail.voterId
+3) election.electionId
+4) voterOTP.otp
+5) secret.secretKey

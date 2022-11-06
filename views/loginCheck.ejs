@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="face-api.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Face Recognition</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <section class="mt-48 flex flex-col items-center justify-center ">
+        <h2 class="text-3xl py-4">Face Verification</h2>
+        <h2 class="text-xl pb-4">Please verify your face to proceed</h2>
+        <p id="loaded-desc" class="w-4 hidden"><%= desc %></p>
+        <button type="button" class="rounded-md shadow-md px-4 py-2 bg-purple-200 hover:bg-purple-400 transition-all" data-modal-target="#modal">Open Webcam</button>
+        <%- include('modal') %>
+        <div id="wrap-animation">
+            <div class="ring hidden">
+                Loading
+                <span class="hidden ring-span"></span>
+            </div>
+        </div> 
+    </section>
+    <script src="scripts/modalScript.js"></script>
+    <script src="scripts/RecognitionScript.js"></script>
+</body>
+</html>

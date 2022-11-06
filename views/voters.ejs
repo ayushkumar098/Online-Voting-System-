@@ -1,0 +1,18 @@
+<%- include('partials/header', {title:'Voters List'}) %>
+<%- include('partials/nav') %>
+<section class="flex flex-col   bg-[#D8D9FB] h-max">
+    <div class="mt-8 px-8">
+        <div class="flex justify-center">
+            <h2 class="text-3xl">Voters for Election</h2>
+            <h1 class="text-3xl text-black-300 ml-8 "><%= electionId %></h1>
+        </div>
+        <div class="ml-8 mt-8">
+            <h1 class="text-xl">Voters List</h1>
+            <% voters.forEach(function(voter){ %>
+                <p class="text-base text-black-500"><%= voter %></p>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>  

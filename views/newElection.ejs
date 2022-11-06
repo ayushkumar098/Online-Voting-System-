@@ -1,0 +1,52 @@
+
+<%- include('partials/header', {title:'New Election'}) %>
+<%- include('partials/nav') %>
+    <div class="flex flex-col items-center justify-center py-8 md:py-16 sm:py-12">
+        <h1 class="font-bold text-xl mb-2">Admin Panel: Upload Election Details</h1>
+        <form action="/admin/newElection" method="post">
+            <div class="flex flex-col bg-slate-200 items-center justify-center rounded-md p-8">
+                <div class="container md:flex md:flex-col md:items-center md:justify-center">
+                    <h1 class="text-center mb-2 md:text-left w-full font-bold text-lg">Election Details</h1>
+                    <div class="flex mb-4 w-full md:w-1/2">
+                        <label for="cname" class="basis-1/2">Election Name:</label>
+                        <input type="text" name="electionTitle" class="shadow appearance-none basis-1/2 rounded-md">
+                    </div>
+                    <div class="flex mb-4 w-full md:w-1/2"></div>
+                        <label for="package" class="mr-4 basis-1/2">ConstituencyId: </label>
+                        <input type="text" name="constituencyId" class="shadow appearance-none rounded-md basis-1/2">
+                    </div>
+                </div>
+
+                <div class="flex basis-1/3 rounded-lg bg-slate-100 items-center justify-center w-max p-2 duration-300 cursor-pointer mb-4 hover:scale-105 hover:bg-slate-300 addF">
+                    <img src="assets/add.png" alt="ADD" class="mr-2 h-4">
+                    <h2>Add Candidates</h2>
+                </div>
+
+                <h1 class="flex basis-1/3 text-center w-full font-bold text-lg mb-2">Role Offered</h1>
+               <div class="flex flex-col extra-items mb-4">
+                    <div class="md:flex new-item mb-2 border-y-2 border-slate-300 py-2">
+                            <div class="md:mr-2 sm:mr-1 flex mb-2">
+                                <label for="role" class="mr-4 basis-1/2">Party Name:</label>
+                                <input type="text" name="party" class="shadow appearance-none rounded-md basis-1/2">
+                            </div>
+                            <div class="md:mr-2 sm:mr-1 flex mb-2">
+                                <label for="visitDate" class="mr-4 basis-1/2">Candidate Name:</label>
+                                <input type="text" name="name" class="shadow appearance-none rounded-md basis-1/2">
+                            </div>
+                            <div class="flex mb-2">
+                                
+                            </div>
+                            <div class="flex mb-2">
+                                <label for="logo" class="mr-4 basis-1/2">Party Logo: </label>
+                                <input type="text" name="logo" class="shadow appearance-none rounded-md basis-1/2">
+                            </div>
+                    </div>
+               </div>
+                <button type="submit" class="w-max h-max px-4 border border-black rounded-lg bg-white duration-300 hover:bg-sky-400 hover:scale-105 hover:text-white">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="scripts/addCandidates.js"></script>
+
+<%- include('partials/footer.ejs') %>

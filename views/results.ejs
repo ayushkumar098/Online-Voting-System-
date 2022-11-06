@@ -1,0 +1,65 @@
+<%- include('partials/header', {title:'Results'}) %>
+<%- include('partials/nav') %>
+<style>
+  body {
+  /* Set "my-sec-counter" to 0 */
+  counter-reset: my-sec-counter;
+  }
+
+  td p::before {
+    /* Increment "my-sec-counter" by 1 */
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter) ". ";
+  }
+</style>
+
+<section class="bg-[#D8D9FB] h-screen">
+    <div>
+        <h1 class="text-3xl pl-16 pt-8">Results</h1>
+<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                #
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Candidate
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Party
+              </th>
+              <th scope="col" class="text-lg font-bold text-gray-900 px-6 py-4 text-left">
+                Votes
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% candidates.forEach(function(candidate){ %>
+                <tr class="bg-white border-b">
+                <td class="bg-[#D8D9FB] px-6 py-4 whitespace-nowrap text-lg font-medium text-gray-900"><p></p></td>
+                
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <%=candidate.name %>
+                </td>
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <%=candidate.party %>
+                </td>
+                <td class="bg-[#D8D9FB] text-lg text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+                    <%=candidate.vote.length %>
+                </td>
+                </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    </div>
+</section>
+
+    
+<%- include('partials/footer.ejs') %>  
+
